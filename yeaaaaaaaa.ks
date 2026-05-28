@@ -91,7 +91,6 @@ dracut-live
 grub2-efi-x64
 grub2-tools
 shim-x64
-syslinux
 
 # === Remove unwanted ===
 -@dial-up

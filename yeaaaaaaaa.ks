@@ -76,7 +76,6 @@ neofetch
 git
 curl
 wget
-unzip
 
 # === Theming ===
 papirus-icon-theme

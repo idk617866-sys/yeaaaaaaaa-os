@@ -4,8 +4,8 @@
 #--------------------------------------
 # INSTALLATION SOURCE
 #--------------------------------------
-url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-40&arch=x86_64
-repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f40&arch=x86_64
+url --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-39&arch=x86_64
+repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f39&arch=x86_64
 
 #--------------------------------------
 # SYSTEM CONFIGURATION

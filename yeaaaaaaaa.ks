@@ -71,7 +71,6 @@ libreoffice-calc
 libreoffice-impress
 gimp
 htop
-neofetch
 git
 curl
 wget

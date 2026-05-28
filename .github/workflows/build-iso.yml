@@ -1,0 +1,57 @@
+name: Build Yeaaaaaaaa OS ISO
+
+on:
+  workflow_dispatch: # Manual trigger from GitHub UI
+  push:
+    branches: [main]
+    paths:
+      - 'kickstart/**'
+      - '.github/workflows/build-iso.yml'
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache
+          df -h
+
+      - name: Set up Fedora container for building
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+
+      - name: Build ISO inside Fedora container
+        run: |
+          sudo podman run --rm --privileged \
+            -v ${{ github.workspace }}:/workspace:Z \
+            registry.fedoraproject.org/fedora:40 \
+            bash /workspace/kickstart/build-inside-container.sh
+
+      - name: Move ISO to workspace root
+        run: |
+          if [ -f output/*.iso ]; then
+            cp output/*.iso .
+          fi
+          find . -name "*.iso" -exec ls -lh {} \;
+          find . -name "*.iso" -exec sha256sum {} \; > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Yeaaaaaaaa-OS-ISO
+          path: |
+            *.iso
+            SHA256SUMS.txt
+          retention-days: 5
+          compression-level: 0

@@ -36,7 +36,7 @@ part / --size 8192 --fstype ext4
 #--------------------------------------
 %packages
 # === KDE Plasma Desktop ===
-@kde-desktop-environment
+@kde-desktop
 @base-x
 @fonts
 @hardware-support
@@ -63,7 +63,6 @@ ark
 spectacle
 kcalc
 kwrite
-elisa
 
 # === System Tools ===
 firefox
@@ -71,20 +70,15 @@ thunderbird
 libreoffice-writer
 libreoffice-calc
 libreoffice-impress
-vlc
 gimp
 htop
 neofetch
-fastfetch
 git
 curl
 wget
 unzip
-p7zip
 
 # === Theming ===
-kvantum
-latte-dock
 papirus-icon-theme
 breeze-gtk
 plymouth-theme-spinner
@@ -103,7 +97,6 @@ grub2-efi-x64
 grub2-tools
 shim-x64
 syslinux
-memtest86+
 
 # === Remove unwanted ===
 -@dial-up

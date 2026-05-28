@@ -45,7 +45,6 @@ part / --size 8192 --fstype ext4
 @printing
 
 # === KDE Core ===
-sddm
 plasma-desktop
 plasma-workspace
 plasma-nm

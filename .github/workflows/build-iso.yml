@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - 'kickstart/**'
-      - '.github/workflows/build-iso.yml'
 
 jobs:
   build-iso:
@@ -27,14 +24,14 @@ jobs:
           df -h
 
       - name: Make build script executable
-        run: chmod +x kickstart/build-inside-container.sh
+        run: chmod +x build-inside-container.sh
 
       - name: Build ISO inside Fedora container
         run: |
           docker run --rm --privileged \
             -v "${{ github.workspace }}:/workspace" \
             registry.fedoraproject.org/fedora:40 \
-            bash /workspace/kickstart/build-inside-container.sh
+            bash /workspace/build-inside-container.sh
 
       - name: List output
         run: |

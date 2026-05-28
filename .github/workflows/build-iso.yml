@@ -30,7 +30,7 @@ jobs:
         run: |
           docker run --rm --privileged \
             -v "${{ github.workspace }}:/workspace" \
-            registry.fedoraproject.org/fedora:40 \
+            registry.fedoraproject.org/fedora:39 \
             bash /workspace/build-inside-container.sh
 
       - name: List output

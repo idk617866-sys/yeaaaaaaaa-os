@@ -85,7 +85,7 @@ plymouth-theme-spinner
 # === Firmware & Drivers ===
 linux-firmware
 mesa-dri-drivers
-xorg-x11-drv-libinput
+ # xorg-x11-drv-libinput
 
 # === Live image tools ===
 dracut-live

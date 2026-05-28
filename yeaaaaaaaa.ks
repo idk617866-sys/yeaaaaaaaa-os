@@ -88,9 +88,6 @@ mesa-dri-drivers
 xorg-x11-drv-libinput
 
 # === Live image tools ===
-anaconda
-anaconda-live
-@anaconda-tools
 dracut-live
 grub2-efi-x64
 grub2-tools
